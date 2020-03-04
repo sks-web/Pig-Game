@@ -64,6 +64,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
     if (scores[activePlayers] >= 100) {
         document.querySelector("#name-" + activePlayers).textContent = "Winner !";
         document.querySelector(".player-"+activePlayers+"-panel").classList.add("winner");
+        document.querySelector(".player-"+activePlayers+"-panel").classList.remove("active");
         document.querySelector(".btn-roll").disabled = true;
         document.querySelector(".btn-hold").disabled = true;
         document.querySelector(".dice").style.display = "none";
