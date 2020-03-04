@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScores, activePlayers;
+var scores, roundScores, activePlayers, winningPoint;
 activePlayers = 3;
 document.querySelector(".dice").style.display = "none";
 
@@ -31,14 +31,16 @@ function newGame() {
     document.querySelector(".btn-hold").disabled = false;
 }
 
-newGame();
-
 document.querySelector(".btn-new").addEventListener("click", function () {
-    newGame();
-    activePlayers = Math.floor(Math.random() * 2);
-    var panel = document.querySelector(".player-" + activePlayers + "-panel");
-    panel.classList.add("active");
-
+    winningPoint = prompt("Please set the winning point for this game.");
+    if(winningPoint){
+        newGame();
+        activePlayers = Math.floor(Math.random() * 2);
+        var panel = document.querySelector(".player-" + activePlayers + "-panel");
+        panel.classList.add("active");
+    } else {
+        alert("Please provide winning point to start the game.");
+    }
 });
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -64,7 +66,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         scores[activePlayers] += roundScores;
         var temp = scores[activePlayers];
         document.getElementById("score-" + activePlayers).textContent = temp;
-        if (scores[activePlayers] >= 100) {
+        if (scores[activePlayers] >= winningPoint) {
             document.querySelector("#name-" + activePlayers).textContent = "Winner !";
             document.querySelector(".player-"+activePlayers+"-panel").classList.add("winner");
             document.querySelector(".player-"+activePlayers+"-panel").classList.remove("active");
