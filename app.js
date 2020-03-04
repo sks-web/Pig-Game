@@ -65,6 +65,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         document.querySelector("#name-" + activePlayers).textContent = "Winner !";
         document.querySelector(".btn-roll").disabled = true;
         document.querySelector(".btn-hold").disabled = true;
+        document.querySelector(".dice").style.display = "none";
     } else {
         holdFunction();
     }
