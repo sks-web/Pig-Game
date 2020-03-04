@@ -18,6 +18,8 @@ function newGame() {
     document.querySelector("#name-0").textContent = "Player 1";
     document.querySelector(".player-1-panel").classList.remove("active");
     document.querySelector(".player-0-panel").classList.remove("active");
+    document.querySelector(".player-1-panel").classList.remove("winner");
+    document.querySelector(".player-0-panel").classList.remove("winner");
     scores = [0, 0];
     roundScores = 0;
     document.getElementById("score-0").textContent = 0;
